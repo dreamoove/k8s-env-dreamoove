@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: publication-deployments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: publicationservice
+  template:
+    metadata:
+      labels:
+        app: publicationservice
+    spec:
+      containers:
+        - name: publicationservice
+          image: kevdev74/publicationservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: publication-clusterip-server
+spec:
+  type: ClusterIP
+  selector:
+    app: publicationservice
+  ports:
+    - name: publicationservice
+      protocol: TCP
+      port: 80
+      targetPort: 80

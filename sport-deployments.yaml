@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sport-deployments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sportservice
+  template:
+    metadata:
+      labels:
+        app: sportservice
+    spec:
+      containers:
+        - name: sportservice
+          image: kevdev74/sportservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sport-clusterip-server
+spec:
+  type: ClusterIP
+  selector:
+    app: sportservice
+  ports:
+    - name: sportservice
+      protocol: TCP
+      port: 80
+      targetPort: 80

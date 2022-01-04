@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: like-deployments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: likeservice
+  template:
+    metadata:
+      labels:
+        app: likeservice
+    spec:
+      containers:
+        - name: likeservice
+          image: kevdev74/friendservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: like-clusterip-server
+spec:
+  type: ClusterIP
+  selector:
+    app: likeservice
+  ports:
+    - name: likeservice
+      protocol: TCP
+      port: 80
+      targetPort: 80

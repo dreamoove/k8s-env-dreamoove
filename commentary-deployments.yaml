@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commentary-deployments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: commentaryservice
+  template:
+    metadata:
+      labels:
+        app: commentaryservice
+    spec:
+      containers:
+        - name: commentaryservice
+          image: kevdev74/commentaryservice:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: commentary-clusterip-server
+spec:
+  type: ClusterIP
+  selector:
+    app: commentaryservice
+  ports:
+    - name: commentaryservice
+      protocol: TCP
+      port: 80
+      targetPort: 80
