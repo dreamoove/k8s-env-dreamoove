@@ -24,3 +24,52 @@ spec:
                 name: commentary-clusterip-server # On recupere l'adresse pour communiquer avec le service
                 port:
                   number: 80
+          - path: /sport # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: contact-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
+          - path: /contact # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: contact-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
+          - path: /dreamoove # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: dreamoove-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
+          - path: /friend # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: friend-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
+          - path: /like # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: like-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
+          - path: /user # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: user-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
+          - path: /archive # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: archive-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
