@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: event-deployments
+  name: dreamoove-deployments
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eventservice
+      app: dreamooveservice
   template:
     metadata:
       labels:
-        app: eventservice
+        app: dreamooveservice
     spec:
       containers:
-        - name: eventservice
-          image: kevdev74/eventservice:latest
+        - name: dreamooveservice
+          image: kevdev74/dreamooveservice:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: event-clusterip-server
+  name: dreamoove-clusterip-server
 spec:
   type: ClusterIP
   selector:
-    app: eventservice
+    app: dreamooveservice
   ports:
-    - name: eventservice
+    - name: dreamooveservice
       protocol: TCP
       port: 80
       targetPort: 80

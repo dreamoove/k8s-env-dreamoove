@@ -17,7 +17,7 @@ spec:
                 name: publication-clusterip-server # On recupere l'adresse pour communiquer avec le service
                 port:
                   number: 80
-          - path: /publication/commentary # On defini le chemin d'acces au service pour les requettes
+          - path: /commentary # On defini le chemin d'acces au service pour les requettes
             pathType: Prefix
             backend:
               service:
@@ -28,7 +28,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: contact-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                name: sport-clusterip-server # On recupere l'adresse pour communiquer avec le service
                 port:
                   number: 80
           - path: /contact # On defini le chemin d'acces au service pour les requettes
