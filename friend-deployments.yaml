@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: friend-deployments
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: friendservice
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: friendservice
-          image: kevdev74/friendservice:latest
+          image: enzo3442/friend-service-dreamoove:latest
 ---
 apiVersion: v1
 kind: Service

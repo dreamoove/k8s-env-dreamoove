@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: commentary-deployments
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: commentaryservice
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: commentaryservice
-          image: kevdev74/commentaryservice:latest
+          image: enzo3442/commentary-service-dreamoove:latest
 ---
 apiVersion: v1
 kind: Service

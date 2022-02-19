@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: user-deployments
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: userservice
@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
         - name: userservice
-          image: kevdev74/userservice:latest
+          image: enzo3442/userservice:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: user-clusterip-server
+  name: sport-clusterip-server
 spec:
   type: ClusterIP
   selector:

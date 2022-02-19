@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: sport-deployments
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: sportservice
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: sportservice
-          image: kevdev74/sportservice:latest
+          image: enzo3442/sportservice:latest
 ---
 apiVersion: v1
 kind: Service

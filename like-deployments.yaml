@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: like-deployments
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: likeservice
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: likeservice
-          image: kevdev74/friendservice:latest
+          image: enzo3442/like-service-dreamoove:latest
 ---
 apiVersion: v1
 kind: Service

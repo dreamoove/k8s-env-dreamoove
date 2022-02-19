@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: event-deployments
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: eventservice
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: eventservice
-          image: kevdev74/eventservice:latest
+          image: enzo3442/dreamoove-service-dreamoove:latest
 ---
 apiVersion: v1
 kind: Service

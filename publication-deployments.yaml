@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: publication-deployments
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: publicationservice
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: publicationservice
-          image: kevdev74/publicationservice:latest
+          image: enzo3442/publication-service-dreamoove:latest
 ---
 apiVersion: v1
 kind: Service
