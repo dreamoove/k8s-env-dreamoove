@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
         - name: userservice
-          image: enzo3442/userservice:latest
+          image: enzo3442/user-service-dreamoove:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: sport-clusterip-server
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: userservice
   ports:
