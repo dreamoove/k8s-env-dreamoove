@@ -21,11 +21,11 @@ kind: Service
 metadata:
   name: sport-clusterip-server
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
-    app: userservice
+    app: sportservice
   ports:
-    - name: userservice
+    - name: sportservice
       protocol: TCP
       port: 80
       targetPort: 80
