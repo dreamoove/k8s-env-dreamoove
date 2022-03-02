@@ -29,3 +29,15 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: publicationservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: publicationservice
+  ports:
+  - port: 80
+    targetPort: 8080

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: sportservice
-          image: enzo3442/sportservice:latest
+          image: enzo3442/sport-service-dreamoove:latest
 ---
 apiVersion: v1
 kind: Service
@@ -29,3 +29,15 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sportservice
+spec:
+  type: LoadBalancer
+  selector:
+    app: sportservice
+  ports:
+  - port: 80
+    targetPort: 8080
