@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: friend-deployments
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: friendservice
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: friendservice
-          image: enzo3442/friend-service-dreamoove:latest
+          image: dreamoove/friend-service:latest
 ---
 apiVersion: v1
 kind: Service
@@ -33,11 +33,27 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: friendservice
+  name: friendservice-server-lb
 spec:
   type: LoadBalancer
   selector:
     app: friendservice
   ports:
-  - port: 80
-    targetPort: 8080
+    - name: friendservice
+      protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: friendservice-server-np
+spec:
+  type: NodePort
+  selector:
+    app: friendservice
+  ports:
+    - name: friendservice
+      protocol: TCP
+      port: 80
+      targetPort: 80

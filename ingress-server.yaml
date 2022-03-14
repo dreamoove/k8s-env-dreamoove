@@ -7,7 +7,7 @@ metadata:
     nginx.ingress.kubernetes.io/use-reges: 'true'
 spec:
   rules:
-    - host: dreamoove.fr # On defini le nom de domaine sur la quel nous allons requeter
+    - host: dreamoove.com # On defini le nom de domaine sur la quel nous allons requeter
       http:
         paths:
           - path: /publication # On defini le chemin d'acces au service pour les requettes
@@ -24,18 +24,11 @@ spec:
                 name: commentary-clusterip-server # On recupere l'adresse pour communiquer avec le service
                 port:
                   number: 80
-          - path: /like # On defini le chemin d'acces au service pour les requettes
+          - path: /sport # On defini le chemin d'acces au service pour les requettes
             pathType: Prefix
             backend:
               service:
-                name: like-clusterip-server # On recupere l'adresse pour communiquer avec le service
-                port:
-                  number: 80
-          - path: /archive # On defini le chemin d'acces au service pour les requettes
-            pathType: Prefix
-            backend:
-              service:
-                name: archive-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                name: sport-clusterip-server # On recupere l'adresse pour communiquer avec le service
                 port:
                   number: 80
           - path: /contact # On defini le chemin d'acces au service pour les requettes
@@ -49,14 +42,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: event-clusterip-server # On recupere l'adresse pour communiquer avec le service
-                port:
-                  number: 80
-          - path: /user # On defini le chemin d'acces au service pour les requettes
-            pathType: Prefix
-            backend:
-              service:
-                name: user-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                name: dreamoove-clusterip-server # On recupere l'adresse pour communiquer avec le service
                 port:
                   number: 80
           - path: /friend # On defini le chemin d'acces au service pour les requettes
@@ -66,11 +52,32 @@ spec:
                 name: friend-clusterip-server # On recupere l'adresse pour communiquer avec le service
                 port:
                   number: 80
-          - path: /sport # On defini le chemin d'acces au service pour les requettes
+          - path: /like # On defini le chemin d'acces au service pour les requettes
             pathType: Prefix
             backend:
               service:
-                name: sport-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                name: like-clusterip-server # On recupere l'adresse pour communiquer avec le service
                 port:
                   number: 80
-          
+          - path: /user # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: user-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
+          - path: /archive # On defini le chemin d'acces au service pour les requettes
+            pathType: Prefix
+            backend:
+              service:
+                name: archive-clusterip-server # On recupere l'adresse pour communiquer avec le service
+                port:
+                  number: 80
+          - path: /story 
+            pathType: Prefix
+            backend:
+              service:
+                name: story-clusterip-server
+                port:
+                  number: 80
+                  

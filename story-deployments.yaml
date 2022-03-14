@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: like-deployments
+  name: story-deployments
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: likeservice
+      app: storyservice
   template:
     metadata:
       labels:
-        app: likeservice
+        app: storyservice
     spec:
       containers:
-        - name: likeservice
-          image: dreamoove/like-service:latest
+        - name: storyservice
+          image: dreamoove/story-service:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: like-clusterip-server
+  name: story-clusterip-server
 spec:
   type: ClusterIP
   selector:
-    app: likeservice
+    app: storyservice
   ports:
-    - name: likeservice
+    - name: storyservice
       protocol: TCP
       port: 80
       targetPort: 80
@@ -33,13 +33,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: likeservice-server-lb
+  name: storyservice-server-lb
 spec:
   type: LoadBalancer
   selector:
-    app: likeservice
+    app: storyservice
   ports:
-    - name: likeservice
+    - name: storyservice
       protocol: TCP
       port: 80
       targetPort: 80
@@ -47,13 +47,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: likeservice-server-np
+  name: storyservice-server-np
 spec:
   type: NodePort
   selector:
-    app: likeservice
+    app: storyservice
   ports:
-    - name: likeservice
+    - name: storyservice
       protocol: TCP
       port: 80
       targetPort: 80
