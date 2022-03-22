@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: contact-api-pod
+  labels:
+    name: contact-api-pod
+    app: dreamoove-micro-services
+spec:
+  containers:
+    - name: contact-api
+      image: dreamoove/contact-service:latest
+      ports:
+        - containerPort: 80

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: commentary-api-pod
+  labels:
+    name: commentary-api-pod
+    app: dreamoove-micro-services
+spec:
+  containers:
+    - name: commentary-api
+      image: dreamoove/commentary-service:latest
+      ports:
+        - containerPort: 80

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: like-api-pod
+  labels:
+    name: like-api-pod
+    app: dreamoove-micro-services
+spec:
+  containers:
+    - name: like-api
+      image: dreamoove/like-service:latest
+      ports:
+        - containerPort: 80

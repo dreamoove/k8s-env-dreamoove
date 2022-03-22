@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: archive-api-pod
+  labels:
+    name: archive-api-pod
+    app: dreamoove-micro-services
+spec:
+  containers:
+    - name: archive-api
+      image: dreamoove/archive-service:latest
+      ports:
+        - containerPort: 80

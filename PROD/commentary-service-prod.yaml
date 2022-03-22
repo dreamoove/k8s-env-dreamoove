@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: commentary-service
+  labels:
+    name: commentary-service
+    app: dreamoove-micro-services
+spec:
+  type: LoadBalancer
+  ports: 
+    - port: 80
+      targetPort: 80
+  selector: 
+    name: commentary-api-pod
+    app: dreamoove-micro-services
