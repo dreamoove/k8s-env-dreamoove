@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sportservice
+      app: sport-service
   template:
     metadata:
       labels:
-        app: sportservice
+        app: sport-service
     spec:
       containers:
         - name: sportservice
@@ -23,9 +23,9 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: sportservice
+    app: sport-service
   ports:
-    - name: sportservice
+    - name: sport-service
       protocol: TCP
       port: 80
       targetPort: 80
