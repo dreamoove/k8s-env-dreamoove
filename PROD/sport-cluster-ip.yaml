@@ -5,9 +5,9 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: sport-service
+    app: sport-api-pod
   ports:
-    - name: sport-service
+    - name: sport-api-pod
       protocol: TCP
       port: 80
       targetPort: 80
