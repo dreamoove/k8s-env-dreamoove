@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: sport-api-pod
   labels:
-    name: user-api-pod
+    name: sport-api-pod
     app: dreamoove-micro-services
 spec:
   containers:
