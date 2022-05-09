@@ -19,7 +19,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: commentary-clusterip-server
+  name: commentary-service
 spec:
   type: ClusterIP
   selector:

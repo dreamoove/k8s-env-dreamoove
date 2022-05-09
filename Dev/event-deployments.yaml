@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: like-deployments
+  name: event-deployments
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: likeservice
+      app: eventservice
   template:
     metadata:
       labels:
-        app: likeservice
+        app: eventservice
     spec:
       containers:
-        - name: likeservice
-          image: dreamoove/like-service:latest
+        - name: eventservice
+          image: dreamoove/dreamoove-service:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: like-clusterip-server
+  name: dreamoove-service
 spec:
   type: ClusterIP
   selector:
-    app: likeservice
+    app: eventservice
   ports:
-    - name: likeservice
+    - name: eventservice
       protocol: TCP
       port: 80
       targetPort: 80

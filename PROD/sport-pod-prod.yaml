@@ -1,11 +1,12 @@
 apiVersion: v1
-kind: Pod
+kind: Deployment
 metadata: 
   name: sport-api-pod
   labels: 
     name: sport-api-pod
     app: dreamoove-micro-services
 spec:
+  replicas: 1
   containers: 
     - name: sport-api
       image: dreamoove/sport-service:latest

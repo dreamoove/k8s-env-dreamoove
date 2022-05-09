@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sport-deployments
+  name: like-deployments
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: sport-service
+      app: likeservice
   template:
     metadata:
       labels:
-        app: sport-service
+        app: likeservice
     spec:
       containers:
-        - name: sportservice
-          image: dreamoove/sport-service:latest
+        - name: likeservice
+          image: dreamoove/like-service:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: sport-clusterip-server
+  name: like-service
 spec:
   type: ClusterIP
   selector:
-    app: sport-service
+    app: likeservice
   ports:
-    - name: sport-service
+    - name: likeservice
       protocol: TCP
       port: 80
       targetPort: 80

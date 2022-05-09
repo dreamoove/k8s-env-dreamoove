@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: friend-deployments
+  name: publication-deployments
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: friendservice
+      app: publicationservice
   template:
     metadata:
       labels:
-        app: friendservice
+        app: publicationservice
     spec:
       containers:
-        - name: friendservice
-          image: dreamoove/friend-service:latest
+        - name: publicationservice
+          image: dreamoove/publication-service:latest
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: friend-clusterip-server
+  name: publication-service
 spec:
   type: ClusterIP
   selector:
-    app: friendservice
+    app: publicationservice
   ports:
-    - name: friendservice
+    - name: publicationservice
       protocol: TCP
       port: 80
       targetPort: 80
