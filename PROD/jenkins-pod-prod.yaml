@@ -27,13 +27,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins
+  name: jenkins-service
   labels:
-    name: jenkins
+    name: jenkins-service
+    app: dreamoove-micro-services
 spec:
   type: LoadBalancer
   ports: 
-    - port: 8080
+    - port: 80
       targetPort: 8080
   selector: 
     name: jenkins
+    app: dreamoove-micro-services
