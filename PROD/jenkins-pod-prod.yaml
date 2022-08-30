@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkins-api-pod
+  labels:
+    name: jenkins-api-pod
+    app: dreamoove-micro-services
+spec:
+  containers:
+    - name: jenkins
+      image: jenkins/jenkins:lts
+      ports:
+        - containerPort: 80
