@@ -15,7 +15,7 @@ spec:
         - name: jenkins
           image: jenkins/jenkins:lts
           ports:
-            - containerPort: 1616
+            - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -28,7 +28,7 @@ spec:
   type: LoadBalancer
   ports: 
     - port: 80
-      targetPort: 1616
+      targetPort: 80
   selector: 
     name: jenkins-deployments
     app: dreamoove-micro-services
