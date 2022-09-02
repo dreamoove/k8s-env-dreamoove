@@ -11,5 +11,5 @@ spec:
     - port: 80
       targetPort: 8080
   selector: 
-    name: jenkins-api-pod
+    name: jenkins
     app: dreamoove-micro-services
