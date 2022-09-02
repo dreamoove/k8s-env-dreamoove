@@ -1,34 +1,30 @@
+
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: jenkins-deployments
-spec:
-  selector:
-    matchLabels:
+metadata:  
+name: jenkins
+spec:  
+  replicas: 1
+  selector:    
+  matchLabels:
       app: jenkins
+  strategy: {}
   template:
     metadata:
       labels:
         app: jenkins
     spec:
       containers:
-        - name: jenkins
-          image: jenkins/jenkins:lts
-          ports:
-            - containerPort: 80
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: jenkins-service
-  labels:
-    name: jenkins-service
-    app: dreamoove-micro-services
-spec:
-  type: LoadBalancer
-  ports: 
-    - port: 80
-      targetPort: 80
-  selector: 
-    name: jenkins-deployments
-    app: dreamoove-micro-services
+      - image: jenkins/jenkins:lts
+        name: jenkins
+        ports:
+        - name: http-port
+          containerPort: 8080
+        volumeMounts:
+        - name: jenkins-volume
+          mountPath: /var/jenkins_volume
+        resources: {}
+      volumes:
+      - name: jenkins-volume
+        emptyDir: {}
+status: {}
