@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: archive-service-v2
+  labels:
+    name: archive-service-v2
+    app: dreamoove-micro-services
+spec:
+  type: LoadBalancer
+  ports: 
+    - port: 80
+      targetPort: 80
+  selector: 
+    name: archive-api-pod-v2
+    app: dreamoove-micro-services

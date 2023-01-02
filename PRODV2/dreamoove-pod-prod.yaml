@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dreamoove-api-pod-v2
+  labels:
+    name: dreamoove-api-pod-v2
+    app: dreamoove-micro-services
+spec:
+  containers:
+    - name: dreamoove-api-v2
+      image: dreamoove/dreamoove-service-v2:latest
+      ports:
+        - containerPort: 80

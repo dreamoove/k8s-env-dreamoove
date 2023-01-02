@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dreamoove-service-v2
+  labels:
+    name: dreamoove-service-v2
+    app: dreamoove-micro-services
+spec:
+  type: LoadBalancer
+  ports: 
+    - port: 80
+      targetPort: 80
+  selector: 
+    name: dreamoove-api-pod-v2
+    app: dreamoove-micro-services
