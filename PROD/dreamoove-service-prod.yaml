@@ -7,6 +7,7 @@ metadata:
     app: dreamoove-micro-services
 spec:
   type: LoadBalancer
+  loadBalancerIP: "34.77.67.25"
   ports: 
     - port: 80
       targetPort: 80
