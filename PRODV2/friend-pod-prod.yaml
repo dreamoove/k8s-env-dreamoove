@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: friend-api-pod-v2
+  name: friend-api-pod
   labels:
-    name: friend-api-pod-v2
+    name: friend-api-pod
     app: dreamoove-micro-services
 spec:
   containers:
-    - name: friend-api-v2
+    - name: friend-api
       image: dreamoove/friend-service-v2:latest
       ports:
         - containerPort: 80

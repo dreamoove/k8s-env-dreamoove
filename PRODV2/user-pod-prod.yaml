@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: user-api-pod-v2
+  name: user-api-pod
   labels:
-    name: user-api-pod-v2
+    name: user-api-pod
     app: dreamoove-micro-services
 spec:
   containers:
-    - name: user-api-v2
+    - name: user-api
       image: dreamoove/user-service-v2:latest
       ports:
         - containerPort: 80

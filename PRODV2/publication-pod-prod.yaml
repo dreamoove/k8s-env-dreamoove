@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: publication-api-pod-v2
+  name: publication-api-pod
   labels:
-    name: publication-api-pod-v2
+    name: publication-api-pod
     app: dreamoove-micro-services
 spec:
   containers:
-    - name: publication-api-pod-v2
+    - name: publication-api-pod
       image: dreamoove/publication-service-v2:latest
       ports:
         - containerPort: 80
