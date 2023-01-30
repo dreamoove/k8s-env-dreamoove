@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stats-service
+  labels:
+    name: stats-service
+    app: dreamoove-micro-services
+spec:
+  type: LoadBalancer
+  ports: 
+    - port: 80
+      targetPort: 80
+  selector: 
+    name: stats-api-pod
+    app: dreamoove-micro-services

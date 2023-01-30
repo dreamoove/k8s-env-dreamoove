@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: stats-api-pod
+  labels:
+    name: stats-api-pod
+    app: dreamoove-micro-services
+spec:
+  containers:
+    - name: stats-api
+      image: dreamoove/stats-service:latest
+      ports:
+        - containerPort: 80
